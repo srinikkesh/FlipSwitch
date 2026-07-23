@@ -1,6 +1,6 @@
 Bootstrapped Light Switch Automater Pin Layout
 
-DS1307 RTC Clock Module
+DS1307 Real Time Clock (RTC) Module
 GND -> GND
 VCC -> 5V
 SDA -> A4

@@ -9,8 +9,7 @@ Copyright (c) 2026 Srinikkesh Senthilkumar
 Summary of File:
 
   This file is the primary code for controlling the basic Arduino Uno R3 based light switch automater, 
-  which flips the switch to aid wake up at a pre-specified time. It integrates an LCD Module, an IR remote 
-  and receiver and an RTC Module for greater time accuracy.
+  which flips the switch to aid wake up at a pre-specified time. It integrates an RTC Module for greater time accuracy.
 */
 
 #include <Arduino.h>
@@ -27,12 +26,12 @@ const int SERVO_RESTING_POSITION = 180; //angle in degrees
 const int SERVO_LOCK_POSITION = 50; //angle in degrees
 const int SERVO_ACTIVE_POSITION = 0; //angle in degrees
 
-const int switchHour = 4;
-const int switchMinute = 30;
+const int SWITCH_HOUR = 4;
+const int SWITCH_MINUTE = 30;
 
-const bool lock = false; // IF YOU WANT THE SERVO TO PREVENT YOU FROM TURNING THE LIGHT OFF, CHANGE THE LOCK to TRUE AND SET THE UNLOCK TIME
-const int unlockHour = 6;
-const int unlockMinute = 0;
+const bool LOCK = false; // IF YOU WANT THE SERVO TO PREVENT YOU FROM TURNING THE LIGHT OFF, CHANGE THE LOCK to TRUE AND SET THE UNLOCK TIME
+const int UNLOCK_HOUR = 6;
+const int UNLOCK_MINUTE = 0;
 
 
 // Object Declarations
@@ -79,22 +78,19 @@ void loop() {
     lightServo.write(SERVO_RESTING_POSITION);
   }
 
-  if((now.hour() == switchHour) && (now.minute() == switchMinute)){
+  if((now.hour() == SWITCH_HOUR) && (now.minute() == SWITCH_MINUTE)){
     lightServo.write(SERVO_ACTIVE_POSITION);
     delay(3000);
     lightServo.write(SERVO_RESTING_POSITION);
-    if (lock){
+    if (LOCK){
       lockState = true;
     };
   };
 
-  if((now.hour() == unlockHour) && (now.minute() == unlockMinute)){
+  if((now.hour() == UNLOCK_HOUR) && (now.minute() == UNLOCK_MINUTE)){
     lockState = false;
   };
 
 
   delay(100); 
 }
-
-
-// Function Definitions
