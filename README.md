@@ -57,11 +57,12 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
 
 **EXAMPLE IMAGES**
 
-https://github.com/user-attachments/assets/e05d3865-1bba-4109-8db3-c98dee590eb4
+https://github.com/user-attachments/assets/af03e7c3-c9e4-406b-838e-41f89b5f27dd
 
-<img width="3024" height="4032" alt="IMG_2650" src="https://github.com/user-attachments/assets/6e4aac46-90d5-4a62-a01e-88a7943f8e9d" />
-<img width="3024" height="4032" alt="IMG_2651" src="https://github.com/user-attachments/assets/0e36475f-0c04-43dc-863e-b5757964e2b2" />
-<img width="3024" height="4032" alt="IMG_2652" src="https://github.com/user-attachments/assets/dc15fbaf-add5-4fc7-a8bd-c9c1c9ca4d0e" />
+<img width="3024" height="4032" alt="Electronics" src="https://github.com/user-attachments/assets/f0030545-5931-4b4e-95fe-31eabf7865f6" />
+<img width="3024" height="4032" alt="Overall Picture" src="https://github.com/user-attachments/assets/28ab0cf3-90e8-42c0-ab67-9923b7e51e59" />
+<img width="3024" height="4032" alt="Servo" src="https://github.com/user-attachments/assets/c365a86c-3a01-41e0-ad5c-8091117a2b06" />
+
 
 
 **NOTES:**
