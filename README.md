@@ -24,6 +24,11 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
 
 3. Download and open the "WakeUp Code" folder as a project in PlatformIO. If you are not using PlatformIO, you can use Arduino's IDE and the code is inside the WakeUp Code/src folder.
 
+4. First build and upload the setupRTC.cpp file to program the right time for the RTC module. 
+    - Open the serial monitor to check the outputs and compare them to your system's time. If there is a significant discrepancy you can increase the RTC_SETUP_OFFSET and reupload until that difference minimizes and the serial monitor is printing the same time as your system's time.
+   
+6. Afterwards, in the main.cpp folder there a few constants that must be configured prior to uploading the code.
+
 4. First build and upload the setupRTC.cpp file to program the right time for the RTC module.
     4a. 
 
@@ -40,19 +45,29 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
 
    5d. Fourthly, keep changing the SERVO_POSITION until you reach a value where the light switch is not being contact but the light switch is also unable to be turned off.
 
-6. Set the SERVO_RESTING_POSITION to the value where the servo is not contacting anything and facing the ground or the value from step 5b.
+7. Set the SERVO_RESTING_POSITION to the value where the servo is not contacting anything and facing the ground or the value from step 5b.
 
-7. Set the SERVO_ACTIVE_POSITION to the value where the servo turns the light on if the light is off or the value from step 5c.
+8. Set the SERVO_ACTIVE_POSITION to the value where the servo turns the light on if the light is off or the value from step 5c.
 
-8. Set the SERVO_LOCK_POSITION to the value where the light is prevented from being turned off or the step from 5d.
+9. Set the SERVO_LOCK_POSITION to the value where the light is prevented from being turned off or the step from 5d.
 
-9. Now set the time in the morning you wish to wake up by changing the variable ALARM_HOUR to the hour you want the light turned on in 24h format. Then change the ALARM_MINUTE to the minute you want the light turned on as a value between 0-60.
+10. Now set the time in the morning you wish to wake up by changing the variable ALARM_HOUR to the hour you want the light turned on in 24h format. Then change the ALARM_MINUTE to the minute you want the light turned on as a value between 0-60.
    For example, if you wish to wake up at 7:26 AM, you would set ALARM_HOUR to 7 and ALARM_MINUTE to 26.
 
-10. If you wish for the device to also prevent you from turning the light off and going back to bed, set the LOCK variable to true; set the UNLOCK_HOUR and UNLOCK_MINUTE to the time you want the lock to be lifted.
+11. If you wish for the device to also prevent you from turning the light off and going back to bed, set the LOCK variable to true; set the UNLOCK_HOUR and UNLOCK_MINUTE to the time you want the lock to be lifted.
    For example, if you wish to wake up at 7:26 AM but you also want the lights on until 8:06 AM, you would set UNLOCK_HOUR to 8 and UNLOCK_MINUTE to 6.
 
-11. Build, upload and that should be all you need to do for setting it up.
+12. Build, upload and that should be all you need to do for setting it up.
+
+**EXAMPLE IMAGES**
+
+https://github.com/user-attachments/assets/af03e7c3-c9e4-406b-838e-41f89b5f27dd
+
+<img width="3024" height="4032" alt="Electronics" src="https://github.com/user-attachments/assets/f0030545-5931-4b4e-95fe-31eabf7865f6" />
+<img width="3024" height="4032" alt="Overall Picture" src="https://github.com/user-attachments/assets/28ab0cf3-90e8-42c0-ab67-9923b7e51e59" />
+<img width="3024" height="4032" alt="Servo" src="https://github.com/user-attachments/assets/c365a86c-3a01-41e0-ad5c-8091117a2b06" />
+
+
 
 **NOTES:**
 This project uses an Arduino Uno R3, purely because that was the microcontroller I had available at hand. if you wish to use a cheaper or a different microcontroller, it is probably fine for this project as long as the microcontroller supports I2C for compatibility with the DS1307. The code that is provided is ***ONLY compatible*** with the Arduino Uno R3 and while using the DS1307 RTC Module.
