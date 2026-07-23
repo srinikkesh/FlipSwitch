@@ -10,4 +10,3 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
 This project uses an Arduino Uno R3, purely because that was the microcontroller I had available at hand. if you wish to use a cheaper or a different microcontroller, it is probably fine for this project as long as the microcontroller supports I2C for compatibility with the DS1307. The code that is provided is ***ONLY compatible*** with the Arduino Uno R3 and while using the DS1307 RTC Module.
 
 **INSTRUCTIONS:**
-1. Connect
