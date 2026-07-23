@@ -22,7 +22,7 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
     - The connection of the powersupply to the Arduino is easily accessible in the case of a situation where the servo is preventy the light from turning off and you need to turn the light off.
     - Ideally I would recommend the addition of a protective covering for the electronics to prevent dust from shorting the circuits, especially if using a breadboard instead of soldering to perboard.
 
-3. Download and open the "WakeUp Code" folder as a project in PlatformIO. If you are not using PlatformIO, you can use Arduino's IDE and the code is inside the WakeUp Code/src folder.
+3. Download and open the "FlipSwitch Code" folder as a project in PlatformIO. If you are not using PlatformIO, you can use Arduino's IDE and the code is inside the FlipSwitch Code/src folder.
 
 4. First build and upload the setupRTC.cpp file to program the right time for the RTC module. 
     - Open the serial monitor to check the outputs and compare them to your system's time. If there is a significant discrepancy you can increase the RTC_SETUP_OFFSET and reupload until that difference minimizes and the serial monitor is printing the same time as your system's time.
