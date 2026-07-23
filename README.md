@@ -26,13 +26,9 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
 
 4. First build and upload the setupRTC.cpp file to program the right time for the RTC module. 
     - Open the serial monitor to check the outputs and compare them to your system's time. If there is a significant discrepancy you can increase the RTC_SETUP_OFFSET and reupload until that difference minimizes and the serial monitor is printing the same time as your system's time.
-   
-6. Afterwards, in the main.cpp folder there a few constants that must be configured prior to uploading the code.
-
-4. First build and upload the setupRTC.cpp file to program the right time for the RTC module.
-    4a. 
 
 5. Afterwards, in the main.cpp folder there a few constants that must be configured prior to uploading the code.
+   
    5a. There are 3 hardcoded servo positions: SERVO_RESTING_POSITION, SERVO_ACTIVE_POSITION, SERVO_LOCK_POSITION.
    - The SERVO_RESTING_POSITION is the position the servo will stay in for the majority of the day.
    - The SERVO_ACTIVE_POSITION is the position the servo will go to to flick the light switch.
@@ -45,19 +41,19 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
 
    5d. Fourthly, keep changing the SERVO_POSITION until you reach a value where the light switch is not being contact but the light switch is also unable to be turned off.
 
-7. Set the SERVO_RESTING_POSITION to the value where the servo is not contacting anything and facing the ground or the value from step 5b.
+6. Set the SERVO_RESTING_POSITION to the value where the servo is not contacting anything and facing the ground or the value from step 5b.
 
-8. Set the SERVO_ACTIVE_POSITION to the value where the servo turns the light on if the light is off or the value from step 5c.
+7. Set the SERVO_ACTIVE_POSITION to the value where the servo turns the light on if the light is off or the value from step 5c.
 
-9. Set the SERVO_LOCK_POSITION to the value where the light is prevented from being turned off or the step from 5d.
+8. Set the SERVO_LOCK_POSITION to the value where the light is prevented from being turned off or the step from 5d.
 
-10. Now set the time in the morning you wish to wake up by changing the variable ALARM_HOUR to the hour you want the light turned on in 24h format. Then change the ALARM_MINUTE to the minute you want the light turned on as a value between 0-60.
+9. Now set the time in the morning you wish to wake up by changing the variable ALARM_HOUR to the hour you want the light turned on in 24h format. Then change the ALARM_MINUTE to the minute you want the light turned on as a value between 0-60.
    For example, if you wish to wake up at 7:26 AM, you would set ALARM_HOUR to 7 and ALARM_MINUTE to 26.
 
-11. If you wish for the device to also prevent you from turning the light off and going back to bed, set the LOCK variable to true; set the UNLOCK_HOUR and UNLOCK_MINUTE to the time you want the lock to be lifted.
+10. If you wish for the device to also prevent you from turning the light off and going back to bed, set the LOCK variable to true; set the UNLOCK_HOUR and UNLOCK_MINUTE to the time you want the lock to be lifted.
    For example, if you wish to wake up at 7:26 AM but you also want the lights on until 8:06 AM, you would set UNLOCK_HOUR to 8 and UNLOCK_MINUTE to 6.
 
-12. Build, upload and that should be all you need to do for setting it up.
+11. Build, upload and that should be all you need to do for setting it up.
 
 **EXAMPLE IMAGES**
 
