@@ -55,6 +55,15 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
 
 12. Build, upload and that should be all you need to do for setting it up.
 
+**EXAMPLE IMAGES**
+
+https://github.com/user-attachments/assets/e05d3865-1bba-4109-8db3-c98dee590eb4
+
+<img width="3024" height="4032" alt="IMG_2650" src="https://github.com/user-attachments/assets/6e4aac46-90d5-4a62-a01e-88a7943f8e9d" />
+<img width="3024" height="4032" alt="IMG_2651" src="https://github.com/user-attachments/assets/0e36475f-0c04-43dc-863e-b5757964e2b2" />
+<img width="3024" height="4032" alt="IMG_2652" src="https://github.com/user-attachments/assets/dc15fbaf-add5-4fc7-a8bd-c9c1c9ca4d0e" />
+
+
 **NOTES:**
 This project uses an Arduino Uno R3, purely because that was the microcontroller I had available at hand. if you wish to use a cheaper or a different microcontroller, it is probably fine for this project as long as the microcontroller supports I2C for compatibility with the DS1307. The code that is provided is ***ONLY compatible*** with the Arduino Uno R3 and while using the DS1307 RTC Module.
 
