@@ -1,0 +1,12 @@
+Bootstrapped Light Switch Automater Pin Layout
+
+DS1307 RTC Clock Module
+GND -> GND
+VCC -> 5V
+SDA -> A4
+SCL -> A5
+
+SG90 Micro Servo
+GND -> GND
+VCC -> 5V
+PWM -> Pin 11
