@@ -23,11 +23,11 @@ const int SERVO_PIN = 11;
 
 // Constants
 const int SERVO_RESTING_POSITION = 180; //angle in degrees
-const int SERVO_LOCK_POSITION = 50; //angle in degrees
 const int SERVO_ACTIVE_POSITION = 0; //angle in degrees
+const int SERVO_LOCK_POSITION = 50; //angle in degrees
 
-const int SWITCH_HOUR = 4;
-const int SWITCH_MINUTE = 30;
+const int ALARM_HOUR = 4;
+const int ALARM_MINUTE = 30;
 
 const bool LOCK = false; // IF YOU WANT THE SERVO TO PREVENT YOU FROM TURNING THE LIGHT OFF, CHANGE THE LOCK to TRUE AND SET THE UNLOCK TIME
 const int UNLOCK_HOUR = 6;
@@ -60,9 +60,6 @@ void setup() {
     while(1);
   }
 
-  // DateTime compileTime = DateTime(F(__DATE__), F(__TIME__));
-  // rtc.adjust(compileTime + TimeSpan(0, 0, 0, 5)); //Its for the consistent offset that happens when setting rtc
-
   delay(500);
 
   digitalWrite(LED_BUILTIN, LOW);
@@ -78,7 +75,7 @@ void loop() {
     lightServo.write(SERVO_RESTING_POSITION);
   }
 
-  if((now.hour() == SWITCH_HOUR) && (now.minute() == SWITCH_MINUTE)){
+  if((now.hour() == ALARM_HOUR) && (now.minute() == ALARM_MINUTE)){
     lightServo.write(SERVO_ACTIVE_POSITION);
     delay(3000);
     lightServo.write(SERVO_RESTING_POSITION);

@@ -1,4 +1,8 @@
-Bootstrapped Light Switch Automater Pin Layout
+FlipSwitch Pin Layout
+
+LEFT -> RIGHT
+Left is the connection on the listed device
+Right is the pin on the Arduino Uno R3
 
 DS1307 Real Time Clock (RTC) Module
 GND -> GND
