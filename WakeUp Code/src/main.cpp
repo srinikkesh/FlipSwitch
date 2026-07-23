@@ -30,6 +30,7 @@ const int SERVO_ACTIVE_POSITION = 0; //angle in degrees
 const int switchHour = 4;
 const int switchMinute = 30;
 
+const bool lock = false; // IF YOU WANT THE SERVO TO PREVENT YOU FROM TURNING THE LIGHT OFF, CHANGE THE LOCK to TRUE AND SET THE UNLOCK TIME
 const int unlockHour = 6;
 const int unlockMinute = 0;
 
@@ -39,7 +40,7 @@ Servo lightServo;
 
 RTC_DS1307 rtc;
 
-bool lock = false;
+bool lockState = false;
 
  
 void setup() {
@@ -71,22 +72,26 @@ void setup() {
 void loop() {
   DateTime now = rtc.now();
 
-  while(lock){
+  if(lockState){
     lightServo.write(SERVO_LOCK_POSITION);
+  }
+  else {
+    lightServo.write(SERVO_RESTING_POSITION);
   }
 
   if((now.hour() == switchHour) && (now.minute() == switchMinute)){
     lightServo.write(SERVO_ACTIVE_POSITION);
     delay(3000);
     lightServo.write(SERVO_RESTING_POSITION);
-    lock = true;
+    if (lock){
+      lockState = true;
+    };
   };
 
   if((now.hour() == unlockHour) && (now.minute() == unlockMinute)){
-    lock = false;
+    lockState = false;
   };
 
-  lightServo.write(SERVO_RESTING_POSITION);
 
   delay(100); 
 }
