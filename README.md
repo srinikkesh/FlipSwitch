@@ -24,9 +24,11 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
 
 3. Download and open the "FlipSwitch Code" folder as a project in PlatformIO. If you are not using PlatformIO, you can use Arduino's IDE and the code is inside the FlipSwitch Code/src folder.
 
-4. First build and upload the setupRTC.cpp file to program the right time for the RTC module. *IMPORTANT:* In this step you will need to build and upload the setupRTC.cpp file, to do so in Platform.io, open the extension on the left hand side in VS Code and inside of uno_rtc_setup/General, use the Build and Upload tasks to build and upload to the device.
+4. First build and upload the setupRTC.cpp file to program the right time for the RTC module. 
 
-     - Open the serial monitor to check the outputs and compare them to your system's time. If there is a significant discrepancy you can increase the RTC_SETUP_OFFSET and reupload until that difference minimizes and the serial monitor is printing the same time as your system's time.
+     *IMPORTANT:* In this step you will need to build and upload the setupRTC.cpp file, to do so in Platform.io, open the extension on the left hand side in VS Code and inside of uno_rtc_setup/General, use the Build and Upload tasks to build and upload to the device.
+
+   - Open the serial monitor to check the outputs and compare them to your system's time. If there is a significant discrepancy you can increase the RTC_SETUP_OFFSET and reupload until that difference minimizes and the serial monitor is printing the same time as your system's time.
 
 6. Afterwards, in the main.cpp folder there a few constants that must be configured prior to uploading the code.
    
