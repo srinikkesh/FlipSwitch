@@ -24,7 +24,7 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
 
 3. Download and open the "FlipSwitch Code" folder as a project in PlatformIO. If you are not using PlatformIO, you can use Arduino's IDE and the code is inside the FlipSwitch Code/src folder.
 
-4. First build and upload the setupRTC.cpp file to program the right time for the RTC module.*IMPORTANT: *In this step you will need to build and upload the setupRTC.cpp file, to do so in Platform.io, open the extension on the left hand side in VS Code and inside of uno_rtc_setup/General, use the Build and Upload tasks to build and upload to the device.
+4. First build and upload the setupRTC.cpp file to program the right time for the RTC module.*IMPORTANT:* In this step you will need to build and upload the setupRTC.cpp file, to do so in Platform.io, open the extension on the left hand side in VS Code and inside of uno_rtc_setup/General, use the Build and Upload tasks to build and upload to the device.
 
      - Open the serial monitor to check the outputs and compare them to your system's time. If there is a significant discrepancy you can increase the RTC_SETUP_OFFSET and reupload until that difference minimizes and the serial monitor is printing the same time as your system's time.
 
@@ -36,7 +36,7 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
    - The SERVO_LOCK_POSITION is the position the servo will go to prevent the light from being turned off.
    To tune the servo positions, first open the tuneServoPos.cpp file. This file moves the servo's horn to the position specified by SERVO_POSITION.
 
-    *IMPORTANT: *In the following steps you will need to build and upload the tuneServoPos.cpp file, to do so in Platform.io, open the extension on the left hand side in VS Code and inside of uno_servo_alignment/General, use the Build and Upload tasks to build and upload to the device.
+    *IMPORTANT:* In the following steps you will need to build and upload the tuneServoPos.cpp file, to do so in Platform.io, open the extension on the left hand side in VS Code and inside of uno_servo_alignment/General, use the Build and Upload tasks to build and upload to the device.
    
    5b. Secondly with SERVO_POSITION set to 0, build and upload the code, the position the servo horn moves to should act as the resting position, try to reattach the servo horn such that in this 0 degree position, the horn faces directly down to the floor and parallel to the wall.
    
@@ -56,7 +56,7 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
 11. If you wish for the device to also prevent you from turning the light off and going back to bed, set the LOCK variable to true; set the UNLOCK_HOUR and UNLOCK_MINUTE to the time you want the lock to be lifted.
    For example, if you wish to wake up at 7:26 AM but you also want the lights on until 8:06 AM, you would set UNLOCK_HOUR to 8 and UNLOCK_MINUTE to 6.
 
-12. *IMPORTANT: *In this step you will need to build and upload the main.cpp file, to do so in Platform.io, open the extension on the left hand side in VS Code and inside of uno_main/General, use the Build and Upload tasks to build and upload to the device.
+12. *IMPORTANT:* In this step you will need to build and upload the main.cpp file, to do so in Platform.io, open the extension on the left hand side in VS Code and inside of uno_main/General, use the Build and Upload tasks to build and upload to the device.
    
 
 **EXAMPLE IMAGES**
