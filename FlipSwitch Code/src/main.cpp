@@ -44,7 +44,7 @@ Servo lightServo;
 
 RTC_DS1307 rtc;
 
-bool alarmFired;
+bool alarmFired = false;
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
@@ -74,6 +74,8 @@ void loop() {
 
   int currentTime_Minutes = (now.hour() * 60) + now.minute();
 
+  //Serial.println(currentTime_Minutes);
+
   if (currentTime_Minutes == ALARM_TIME_MINUTES && alarmFired == false){
     lightServo.write(SERVO_ACTIVE_POSITION);
     delay(2000);
@@ -81,17 +83,21 @@ void loop() {
     alarmFired = true;
   } 
   
-  if (alarmFired && currentTime_Minutes < UNLOCK_TIME_MINUTES && LOCK){
-    lightServo.write(SERVO_LOCK_POSITION);
+  if (alarmFired && LOCK) {
+    if (currentTime_Minutes >= ALARM_TIME_MINUTES && currentTime_Minutes < UNLOCK_TIME_MINUTES) {
+      lightServo.write(SERVO_LOCK_POSITION);
+    } else {
+      lightServo.write(SERVO_RESTING_POSITION);
+    }
   } else {
     lightServo.write(SERVO_RESTING_POSITION);
   }
 
-  if (currentTime_Minutes > UNLOCK_TIME_MINUTES){
+  if (currentTime_Minutes >= UNLOCK_TIME_MINUTES && alarmFired){
     alarmFired = false;
   }
 
-  delay(1000); 
+  delay(100); 
 }
 
 
