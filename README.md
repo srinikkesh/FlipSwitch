@@ -53,10 +53,10 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
   5g. Set the SERVO_LOCK_POSITION to the value where the light is prevented from being turned off or the step from 5d.
 
 6. Now set the time in the morning you wish to wake up by changing the variable ALARM_HOUR to the hour you want the light turned on in 24h format. Then change the ALARM_MINUTE to the minute you want the light turned on as a value between 0-60.
-   For example, if you wish to wake up at 5:00 AM, you would set ALARM_HOUR to 5 and ALARM_MINUTE to 0.
+   For example, if you wish to wake up at 7:26 AM, you would set ALARM_HOUR to 7 and ALARM_MINUTE to 26.
 
 7. If you wish for the device to also prevent you from turning the light off and going back to bed, set the LOCK variable to true; set the UNLOCK_HOUR and UNLOCK_MINUTE to the time you want the lock to be lifted.
-   For example, if you wish to wake up at 5:00 AM but you also want the lights to be locked on until 6:06 AM, you would set UNLOCK_HOUR to 6 and UNLOCK_MINUTE to 6.
+   For example, if you wish to wake up at 7:26 AM but you also want the lights on until 8:06 AM, you would set UNLOCK_HOUR to 8 and UNLOCK_MINUTE to 6.
 
 8. *IMPORTANT:* In this step you will need to build and upload the main.cpp file, to do so in Platform.io, open the extension on the left hand side in VS Code and inside of uno_main/General, use the Build and Upload tasks to build and upload to the device.
    
