@@ -26,12 +26,13 @@ const int SERVO_RESTING_POSITION = 180; //angle in degrees
 const int SERVO_ACTIVE_POSITION = 0; //angle in degrees
 const int SERVO_LOCK_POSITION = 50; //angle in degrees
 
-const int ALARM_HOUR = 4;
-const int ALARM_MINUTE = 30;
+const int ALARM_HOUR = 7;
+const int ALARM_MINUTE = 26;
 
 const bool LOCK = false; // IF YOU WANT THE SERVO TO PREVENT YOU FROM TURNING THE LIGHT OFF, CHANGE THE LOCK to TRUE AND SET THE UNLOCK TIME
-const int UNLOCK_HOUR = 6;
-const int UNLOCK_MINUTE = 0;
+// Make sure the UNLOCK time is after the ALARM time.
+const int UNLOCK_HOUR = 8; // Make sure there is a value here even if you do not want the lightswitch locked
+const int UNLOCK_MINUTE = 6; // Make sure there is a value here even if you do not want the lightswitch locked
 
 
 // Object Declarations
@@ -39,9 +40,7 @@ Servo lightServo;
 
 RTC_DS1307 rtc;
 
-bool lockState = false;
 
- 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, HIGH);
@@ -52,7 +51,6 @@ void setup() {
   }
   
   lightServo.attach(SERVO_PIN);
-  lightServo.write(SERVO_RESTING_POSITION);
 
   if(! rtc.begin()){
     Serial.println("Could not find RTC");
@@ -68,26 +66,27 @@ void setup() {
 void loop() {
   DateTime now = rtc.now();
 
-  if(lockState){
-    lightServo.write(SERVO_LOCK_POSITION);
-  }
-  else {
-    lightServo.write(SERVO_RESTING_POSITION);
-  }
+  int currentTime_Minutes = (now.hour() * 60) + now.minute();
+  int alarmTime_Minutes = (ALARM_HOUR * 60) + ALARM_MINUTE;
+  int unlockTime_Minutes = (UNLOCK_HOUR * 60) + UNLOCK_MINUTE;
 
-  if((now.hour() == ALARM_HOUR) && (now.minute() == ALARM_MINUTE)){
+  if (currentTime_Minutes == alarmTime_Minutes){
     lightServo.write(SERVO_ACTIVE_POSITION);
-    delay(3000);
+    delay(2000);
+
+    if(LOCK){
+      lightServo.write(SERVO_LOCK_POSITION);
+    }
+    else{
+      lightServo.write(SERVO_RESTING_POSITION);
+    }
+    delay(58000);
+
+  } else if (currentTime_Minutes > alarmTime_Minutes && currentTime_Minutes < unlockTime_Minutes && LOCK){
+    lightServo.write(SERVO_LOCK_POSITION);
+  } else {
     lightServo.write(SERVO_RESTING_POSITION);
-    if (LOCK){
-      lockState = true;
-    };
-  };
+  }
 
-  if((now.hour() == UNLOCK_HOUR) && (now.minute() == UNLOCK_MINUTE)){
-    lockState = false;
-  };
-
-
-  delay(100); 
+  delay(1000); 
 }
