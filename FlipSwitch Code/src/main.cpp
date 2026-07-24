@@ -1,5 +1,5 @@
 /*
-File:     main.py
+File:     main.cpp
 
 Author:   Srinikkesh Senthilkumar
 Date:     July 21, 2026
@@ -26,13 +26,13 @@ const int SERVO_RESTING_POSITION = 180; //angle in degrees
 const int SERVO_ACTIVE_POSITION = 0; //angle in degrees
 const int SERVO_LOCK_POSITION = 50; //angle in degrees
 
-const int ALARM_HOUR = 7;
-const int ALARM_MINUTE = 26;
+const int ALARM_HOUR = 4;
+const int ALARM_MINUTE = 30;
 
-const bool LOCK = false; // IF YOU WANT THE SERVO TO PREVENT YOU FROM TURNING THE LIGHT OFF, CHANGE THE LOCK to TRUE AND SET THE UNLOCK TIME
+const bool LOCK = true; // IF YOU WANT THE SERVO TO PREVENT YOU FROM TURNING THE LIGHT OFF, CHANGE THE LOCK to TRUE AND SET THE UNLOCK TIME
 // Make sure the UNLOCK time is after the ALARM time.
-const int UNLOCK_HOUR = 8; // Make sure there is a value here even if you do not want the lightswitch locked
-const int UNLOCK_MINUTE = 6; // Make sure there is a value here even if you do not want the lightswitch locked
+const int UNLOCK_HOUR = 6; // Make sure there is a value here even if you do not want the lightswitch locked
+const int UNLOCK_MINUTE = 0; // Make sure there is a value here even if you do not want the lightswitch locked
 
 
 // Object Declarations

@@ -1,5 +1,5 @@
 /*
-File:     main.py
+File:     setupRTC.cpp
 
 Author:   Srinikkesh Senthilkumar
 Date:     July 23, 2026
@@ -24,6 +24,11 @@ RTC_DS1307 rtc;
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, HIGH);
+
+  Serial.begin(9600);
+  while(!Serial){
+    ;
+  }
 
   if(! rtc.begin()){
     Serial.println("Could not find RTC");
