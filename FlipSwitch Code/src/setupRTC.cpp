@@ -15,7 +15,7 @@ Summary of File:
 #include <RTClib.h>
 
 // Constants
-const float RTC_SETUP_OFFSET = 0.0; // OPTIONAL: Use to offset the time until the Serial monitor displays the same time +- 1 second as the device
+const float RTC_SETUP_OFFSET = 5.0; // OPTIONAL: Use to offset the time until the Serial monitor displays the same time +- 1 second as the device
 
 // Object Declarations
 RTC_DS1307 rtc;
@@ -47,13 +47,19 @@ void setup() {
 void loop() {
   DateTime now = rtc.now();
 
-  Serial.println("Current Time: ");
+  Serial.println("");
+  Serial.print("Current Time: ");
+
+  if(now.hour() < 10) Serial.print("0");
   Serial.print(now.hour());
   Serial.print(":");
+
+  if(now.minute() < 10) Serial.print("0");
   Serial.print(now.minute());
   Serial.print(":");
+
+  if(now.second() < 10) Serial.print("0");
   Serial.print(now.second());
-  Serial.print(":");
 
   delay(100); 
 }

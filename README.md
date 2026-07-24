@@ -4,7 +4,7 @@ An Arduino Uno R3 based device that automatically switches on the light at a pro
 
 It uses a DS1307 RTC Module for keeping accurate track of time for a longer duration, although after long duration usage, the clock may shift requiring resetting it to the current time through re uploading the files in the specified order. 
 
-The actuator is a SG90 Micro Servo although any servo that can be controlled using PWM is compatible, just note that larger servos may cause brownouts as the servo is directly powered by the Arduino Uno, although you may alter this as needed.
+The actuator is a SG90 Micro Servo although any servo that can be controlled using PWM is compatible, just note that larger servos may cause brownouts or potentially damage the Arduino through drawing too much current as the servo is directly powered by the Arduino Uno, although if you use a larger servo I would recommend you use a seperate external powersupply that is independant from the Arduino.
 
 **INSTRUCTIONS:**
 1. Wire components as directed by the wiring schematic and layout.
@@ -30,7 +30,7 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
 
    - Open the serial monitor to check the outputs and compare them to your system's time. If there is a significant discrepancy you can increase the RTC_SETUP_OFFSET and reupload until that difference minimizes and the serial monitor is printing the same time as your system's time.
 
-6. Afterwards, in the main.cpp folder there a few constants that must be configured prior to uploading the code.
+5. Afterwards, in the main.cpp folder there a few constants that must be configured prior to uploading the code.
    
    5a. There are 3 hardcoded servo positions: SERVO_RESTING_POSITION, SERVO_ACTIVE_POSITION, SERVO_LOCK_POSITION.
    - The SERVO_RESTING_POSITION is the position the servo will stay in for the majority of the day.
@@ -40,25 +40,25 @@ The actuator is a SG90 Micro Servo although any servo that can be controlled usi
 
     *IMPORTANT:* In the following steps you will need to build and upload the tuneServoPos.cpp file, to do so in Platform.io, open the extension on the left hand side in VS Code and inside of uno_servo_alignment/General, use the Build and Upload tasks to build and upload to the device.
    
-   5b. Secondly with SERVO_POSITION set to 0, build and upload the code, the position the servo horn moves to should act as the resting position, try to reattach the servo horn such that in this 0 degree position, the horn faces directly down to the floor and parallel to the wall.
+   5b. Secondly with SERVO_POSITION set to 180, build and upload the code, the position the servo horn moves to should act as the resting position, try to reattach the servo horn such that in this 180 degree position, the horn faces directly down to the floor and parallel to the wall.
    
-   5c. Thirdly, set the SERVO_POSITION to 180, build and upload the code, the position of the servo horn should move upwards to flick the switch on. Should the servo move the opposite direction, or get stuck on the switch after turning it on, you may need to either reposition the servo horn relative to the servo or reposition the servo such that when the switch is in the "on" position, the servo misses the switch completely.
+   5c. Thirdly, set the SERVO_POSITION to 0, build and upload the code, the position of the servo horn should move upwards to flick the switch on. Should the servo move the opposite direction, or get stuck on the switch after turning it on, you may need to either reposition the servo horn relative to the servo or reposition the servo such that when the switch is in the "on" position, the servo misses the switch completely.
 
    5d. Fourthly, keep changing the SERVO_POSITION until you reach a value where the light switch is not being contact but the light switch is also unable to be turned off.
 
-7. Set the SERVO_RESTING_POSITION to the value where the servo is not contacting anything and facing the ground or the value from step 5b.
+  5e. Set the SERVO_RESTING_POSITION to the value where the servo is not contacting anything and facing the ground or the value from step 5b.
 
-8. Set the SERVO_ACTIVE_POSITION to the value where the servo turns the light on if the light is off or the value from step 5c.
+  5f. Set the SERVO_ACTIVE_POSITION to the value where the servo turns the light on if the light is off or the value from step 5c.
 
-9. Set the SERVO_LOCK_POSITION to the value where the light is prevented from being turned off or the step from 5d.
+  5g. Set the SERVO_LOCK_POSITION to the value where the light is prevented from being turned off or the step from 5d.
 
-10. Now set the time in the morning you wish to wake up by changing the variable ALARM_HOUR to the hour you want the light turned on in 24h format. Then change the ALARM_MINUTE to the minute you want the light turned on as a value between 0-60.
-   For example, if you wish to wake up at 7:26 AM, you would set ALARM_HOUR to 7 and ALARM_MINUTE to 26.
+6. Now set the time in the morning you wish to wake up by changing the variable ALARM_HOUR to the hour you want the light turned on in 24h format. Then change the ALARM_MINUTE to the minute you want the light turned on as a value between 0-60.
+   For example, if you wish to wake up at 5:00 AM, you would set ALARM_HOUR to 5 and ALARM_MINUTE to 0.
 
-11. If you wish for the device to also prevent you from turning the light off and going back to bed, set the LOCK variable to true; set the UNLOCK_HOUR and UNLOCK_MINUTE to the time you want the lock to be lifted.
-   For example, if you wish to wake up at 7:26 AM but you also want the lights on until 8:06 AM, you would set UNLOCK_HOUR to 8 and UNLOCK_MINUTE to 6.
+7. If you wish for the device to also prevent you from turning the light off and going back to bed, set the LOCK variable to true; set the UNLOCK_HOUR and UNLOCK_MINUTE to the time you want the lock to be lifted.
+   For example, if you wish to wake up at 5:00 AM but you also want the lights to be locked on until 6:06 AM, you would set UNLOCK_HOUR to 6 and UNLOCK_MINUTE to 6.
 
-12. *IMPORTANT:* In this step you will need to build and upload the main.cpp file, to do so in Platform.io, open the extension on the left hand side in VS Code and inside of uno_main/General, use the Build and Upload tasks to build and upload to the device.
+8. *IMPORTANT:* In this step you will need to build and upload the main.cpp file, to do so in Platform.io, open the extension on the left hand side in VS Code and inside of uno_main/General, use the Build and Upload tasks to build and upload to the device.
    
 
 **EXAMPLE IMAGES**
